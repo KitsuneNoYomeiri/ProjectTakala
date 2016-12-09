@@ -1,0 +1,44 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title>Add a match</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<link type="text/css" rel="stylesheet" href="css/bootstrap.min.css" th:href="@{css/bootstrap.min.css}" />
+</head>
+<body background="http://na.leagueoflegends.com/sites/default/files/styles/scale_xlarge/public/upload/wsq-banner.jpg?itok=1AILjlkn">
+	<h2>Add a match</h2>
+	<div class="col-md-4">
+		<form th:object="${match}" th:action="@{save}" action="#" method="post">
+			<label for="catlist">Map name</label>
+			<select id="catlist" th:field="*{category}" class="form-control">
+				<option th:each="category: ${categories}" th:value="${category.categoryid}" th:text="${category.mapname}"></option>
+			</select>
+			<label for="champion">Champion name</label>
+			<input type="text" id="champion" th:field="*{champion}" class="form-control" />
+			<div style="clear: both; display: block; height: 12px;"></div>
+			<label for="role">Role</label>
+			<input type="text" id="role" th:field="*{role}" class="form-control" />
+			<div style="clear: both; display: block; height: 12px;"></div>
+			<label for="kills">Kills</label>
+			<input type="value" id="kills" th:field="*{kills}" class="form-control" />
+			<div style="clear: both; display: block; height: 12px;"></div>
+			<label for="deaths">Deaths</label>
+			<input type="value" id="deaths" th:field="*{deaths}" class="form-control" />
+			<div style="clear: both; display: block; height: 12px;"></div>
+			<label for="assists">Assists</label>
+			<input type="value" id="assists" th:field="*{assists}" class="form-control" />
+			<div style="clear: both; display: block; height: 12px;"></div>
+			<label for="creeps">Creep score</label>
+			<input type="value" id="creeps" th:field="*{creeps}" class="form-control" />
+			<div style="clear: both; display: block; height: 12px;"></div>
+			<label for="gametime">Game time</label>
+			<input type="value" id="gametime" th:field="*{gametime}" class="form-control" />
+			<div style="clear: both; display: block; height: 12px;"></div>
+			<label for="result">Result</label>
+			<input type="text" id="result" th:field="*{result}" class="form-control" />
+			<div style="clear: both; display: block; height: 12px;"></div>
+			<input type="submit" value="Save"  class="btn btn-success"></input>
+		</form>
+		</div>
+	</body>
+</html>
